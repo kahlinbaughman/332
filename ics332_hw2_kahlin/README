@@ -1,0 +1,28 @@
+Exercise #1
+
+Q1.
+	It isn't blocked because the parent skips the if statements and waits for any child to terminate,wait(null). The child goes into the if statement and forks itself, the child then terminates while the grandchild goes into the if statement and execv the cp command. Since the child terminates right away, the parent gets the child instead of having to wait for the grandchild.
+
+Q2.
+	There is no zombie because upon the grandchild terminating it gets adopted by PID 1 and is taken care of by the OS.
+
+Exercise #2
+
+Q1.
+	At 40 seconds
+Q2.
+	At 50 seconds
+Q3.
+	11
+Q4.
+	11
+Q5.
+	At 30 seconds
+Q6.
+	At 20 seconds
+Q7.
+	89
+Q8.
+	11
+Q9.
+	89 and 11

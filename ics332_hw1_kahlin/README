@@ -1,0 +1,51 @@
+Exercise #1
+q1.
+	Full absolute path to standard C Library: "/lib/x86_64-linux-gnu/libc.so.6"
+
+q2.
+	It fails 23 times
+		I used "strace -c du -sh /" and just looked at the error column for the openat syscall
+
+q3.
+	Number of unique System Calls: 17
+		I used "strace -c du -sh /" to output the statistics of the system calls placed and counted the system calls listed.
+
+q4.
+Time command output of 'time sudo du -sh /'
+	real	0m8.049s
+	user	0m1.237s
+	sys	0m3.163s
+
+q5.
+Time spent on I/O:
+	 8.049
+	-(1.237 + 3.163)
+	----------------
+	3.649s of I/O or 45%
+
+q6.
+	5.4 usecs on average per call
+Exercise #2
+q1.
+	337 sys calls were made before first bytes were read. I did this by counting the line numbers before the bytes were received.
+q2.
+	It typically likes to attempt 8192 bytes
+	read(3, "The Project Gutenberg EBook of T"..., 8192) = 1374
+
+q3.
+	wget attempts 997 times. I did this by using grep and counting all the read calls. Then filtering into another grep and filtering for 8192 then adding two for the last two attempts that don't read 8192
+
+q4.
+	wget doesn't receieve what it wants 248 times. Again I used grep to find all the calls to read the file, then I filtered into grep again wwith regex where the return value from read wasn't the requested byte value
+
+q5.
+	I would say typically it does fill the buffer when it requests the amount of bytes it wants. 
+q6.
+	956 times
+
+q7.
+	169 times
+q8.
+	I would say that yes it does
+q9.
+	There was probably a difference due to the system the server is hosted on as well as the traffic accessing each cite. If we have to be in POST to access the personal unix server than the data transfer is more consistent than to wherever the peter's serve is at.
