@@ -3,12 +3,13 @@ package kvstore;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.LinkedList;
+import java.util.HashMap;
 
 public class KVServer extends UnicastRemoteObject implements KVInterface {
 
     private static final String serverName = "rmi://localhost/Server";
 
+    private HashMap<String, String> kv = new HashMap<String, String>();
 
     // Custom constructor that throws the required exception
     protected KVServer() throws RemoteException {
@@ -17,12 +18,24 @@ public class KVServer extends UnicastRemoteObject implements KVInterface {
 
     @Override
     public void insert(String key, String value) throws RemoteException {
-        System.out.println("Hello");
+        kv.put(key, value);
     }
 
     @Override
     public String lookup(String key) throws RemoteException, KeyNotFound {
-        return null;
+
+        String value;
+
+        if (kv.containsKey(key))
+        {
+            value = kv.get(key);
+        }
+        else
+        {
+            value = "Unknown key";
+        }
+
+        return value;
     }
 
     public void shutdown() throws RemoteException  {
