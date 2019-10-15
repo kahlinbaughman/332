@@ -12,7 +12,7 @@ public class ComputePaths {
         for (int tr = 0; tr < num_threads; tr++)
         {
             // Not real function, change later
-            // worker(graph_size, graphDivStart, graphDiv);
+            worker(graph_size, graphDivStart, graphDiv);
             graphDivStart =  graphDiv;
             graphDiv += graphDiv;
 
