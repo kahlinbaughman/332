@@ -2,13 +2,25 @@ package paths;
 
 public class ComputePaths {
 
+    private static int graphs[] = new int[]{2520, 1260, 840, 630, 504, 420, 360, 315, 280, 252};
 
     public void compute(int graph_size, int num_threads) {
 
-        for (long i = 0; i < 2520; i++) {
-            new FloydWarshall(graph_size, i).floydWarshall();
+        int graphDiv = graphs[(num_threads - 1)];
+        int graphDivStart = 0;
+
+        for (int tr = 0; tr < num_threads; tr++)
+        {
+            // Not real function, change later
+            // worker(graph_size, graphDivStart, graphDiv);
+            graphDivStart =  graphDiv;
+            graphDiv += graphDiv;
+
         }
 
+        for (long i = 0; i < 252; i++) {
+            new FloydWarshall(graph_size, i).floydWarshall();
+        }
     }
 
     public static void main(String[] args) {
@@ -37,6 +49,22 @@ public class ComputePaths {
 
         System.out.println("All graphs computed in " + (System.currentTimeMillis() - now) / 1000 + " seconds");
 
+    }
+
+}
+
+class Worker implements Runnable{
+    private int graphSize, graphStart, graphStop;
+
+
+    public Worker(int graphSize, int graphStart, int graphStop) {
+        this.graphSize = graphSize;
+        this.graphStart = graphStart;
+        this.graphStop = graphStop;
+    }
+
+    @Override
+    public void run() {
     }
 
 }
