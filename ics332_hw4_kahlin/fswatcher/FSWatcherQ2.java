@@ -35,3 +35,10 @@ public class FSWatcherQ1 {
         }
     }
 }
+
+class Watcher {
+
+    public Watcher() {
+
+    }
+}
