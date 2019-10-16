@@ -4,6 +4,9 @@ public class ComputePaths {
 
     private static int graphs[] = new int[]{2520, 1260, 840, 630, 504, 420, 360, 315, 280, 252};
 
+    private static Worker worker;
+    private static Thread workerThread[] = new Thread[10];
+
     public void compute(int graph_size, int num_threads) {
 
         int graphDiv = graphs[(num_threads - 1)];
@@ -11,15 +14,12 @@ public class ComputePaths {
 
         for (int tr = 0; tr < num_threads; tr++)
         {
-            // Not real function, change later
-            worker(graph_size, graphDivStart, graphDiv);
+            worker = new Worker(graph_size, graphDivStart, graphDiv);
+            workerThread[tr] = new Thread(worker);
+            workerThread[tr].start();
             graphDivStart =  graphDiv;
-            graphDiv += graphDiv;
+            graphDiv += graphs[(num_threads - 1)];
 
-        }
-
-        for (long i = 0; i < 252; i++) {
-            new FloydWarshall(graph_size, i).floydWarshall();
         }
     }
 
@@ -47,6 +47,16 @@ public class ComputePaths {
 
         new ComputePaths().compute(graph_size, num_threads);
 
+        try
+        {
+            for (int tr = 0; tr < num_threads; tr++)
+            {
+                workerThread[tr].join();
+            }
+        } catch (Exception e) {
+            System.err.println("Thread Join Exception: " + e);
+        }
+
         System.out.println("All graphs computed in " + (System.currentTimeMillis() - now) / 1000 + " seconds");
 
     }
@@ -65,6 +75,11 @@ class Worker implements Runnable{
 
     @Override
     public void run() {
+
+        for (; this.graphStart < this.graphStop; this.graphStart++)
+        {
+            new FloydWarshall(this.graphSize, this.graphStart).floydWarshall();
+        }
     }
 
 }
