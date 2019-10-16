@@ -1,1 +1,26 @@
-I found that a graph size of 168 will run the program at 27s consistently.
+Exercise #1
+
+Q1.
+	I found that a graph size of 168 will run the program at 27s consistently.
+
+Q3.
+	1: 28.636
+	2: 15.57
+	3: 16.0248
+	4: 15.9014
+	5: 15.951
+	6: 15.8696
+	7: 16.126
+	8: 16.5276
+	9: 16.4524
+	10: 16.8124
+
+	q1.
+		It is .54x faster than running on one thread
+		15.57/28.636 = .54
+	q2.
+		Two
+	q3.
+		No. More threads than cores on my machine actually seems to make it worse.
+	q4.
+		The largest acceleration factor is .54 with 2 threads.
