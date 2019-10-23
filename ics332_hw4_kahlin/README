@@ -4,6 +4,7 @@ Q1.
 	I found that a graph size of 168 will run the program at 27s consistently.
 
 Q3.
+	Threads:Time
 	1: 28.636
 	2: 15.57
 	3: 16.0248
