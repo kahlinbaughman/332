@@ -1,0 +1,25 @@
+Exercise 1
+    Question 1:
+        q1:
+            Job B would be the most likely to be the infinite CPU burst.
+            It seems to use the whole time quantum repeatedly except for one instance.
+
+        q2:
+            Job A.
+
+        q3:
+            Job A is most likely to be the text editor since it seems to be constantly waiting for I/O.
+
+    Question 2:
+        q1:
+            IoIoIo IoCCo IoIoIo IoCCo
+
+        q3:
+            cumulative time o = 1ms
+            total time = 13ms
+            1/13 * 100 = 7%
+            x/13*100 = 2%
+            x/13 = 2/100
+            x = (13*2)100
+            x = 0.26ms
+            o takes .026ms to get 2%
