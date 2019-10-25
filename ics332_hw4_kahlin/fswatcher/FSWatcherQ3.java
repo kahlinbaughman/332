@@ -27,8 +27,11 @@ public class FSWatcherQ3 {
     }
 
     public void stopWatch(String dirname) {
-        processList.get(dirname).destroy();
-        processList.remove(dirname);
+
+        if (processList.containsKey(dirname)) {
+            processList.get(dirname).destroy();
+            processList.remove(dirname);
+        }
     }
 }
 
