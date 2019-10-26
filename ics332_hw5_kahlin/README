@@ -23,3 +23,14 @@ Exercise 1
             x = (13*2)100
             x = 0.26ms
             o takes .026ms to get 2%
+
+Exercise 2
+    Question 1:
+        q1:
+            Job A is in the mid priority queue.
+            Job B is in the low priority queue.
+            Job C is in the high priority queue.
+            Job D is in the high priority queue.
+
+        q2:
+            
