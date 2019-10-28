@@ -25,7 +25,15 @@ Exercise 1
             o takes .026ms to get 2%
 
 Exercise 2
+    high 4ms
+    mid  8ms
+    low  20ms
     Question 1:
+        B-2,
+        A-4,
+        D-8,
+        C-7,
+        E-20
         q1:
             Job A is in the mid priority queue.
             Job B is in the high priority queue.
@@ -34,3 +42,23 @@ Exercise 2
             Job E is in the low priority queue.
 
         q2:
+            0123 45 6789 0123
+            AAAA BB CCCC DDDD EEEE
+
+            D gets put into the mid priority queue at time 13. It uses the whole
+            time quantum and runs from time 10 to 13. After it finishes running
+            it gets dropped to the mid priority queue.
+
+    Question2:
+        A-2, B-∞
+        q1:
+            AA BBBB AA B AA B...
+
+        q2:
+            Yes. It runs 33% of the time. If take the pattern longer, say
+            five repetitions of "AA B AA B"then A runs for total of 20ms and
+            B does total of 10ms. 10/30 *100 = 33
+
+        q3:
+            01 2345 67 8 90 1 23 4567 89 0 12 3 45 6789 01 2 34 5 67 89
+            AA BBBB AA B AA B AA BBBB AA B AA B AA BBBB AA B AA B AA BB...
