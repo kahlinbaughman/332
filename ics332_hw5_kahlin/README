@@ -12,17 +12,17 @@ Exercise 1
 
     Question 2:
         q1:
-            IoIoIo IoCCo IoIoIo IoCCo
+            IoIoIoIoCCCoIoIoIoIoCCCo
 
         q3:
             cumulative time o = 1ms
-            total time = 13ms
-            1/13 * 100 = 7%
-            x/13*100 = 2%
-            x/13 = 2/100
-            x = (13*2)100
-            x = 0.26ms
-            o takes .026ms to get 2%
+            total time = 15ms
+            1/15 * 100 = 6.6%
+            x/15*100 = 2%
+            x/15 = .02/100
+            x = (15*.02)/100
+            x = 0.003ms
+            o takes .0003ms to get 2%
 
 Exercise 2
     high 4ms

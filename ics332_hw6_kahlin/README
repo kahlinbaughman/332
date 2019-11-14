@@ -1,0 +1,52 @@
+Exercise #1:
+    Question #1:
+        The heap allocator allocates new chunks of ram at the end of holes in
+        memory. If it was allocated at the beginning then the address would
+        have been 2112.
+
+    Question #2:
+    1024, 64,  1024,   512,  1024,   128,  1024,     64, 1024
+    0  | 1024 | 1088 | 2112 | 2624 | 3648 | 3776 | 4800 | 4864 |
+    --------------
+    The 100-byte chunk was allocated at address 2524
+    The 200-byte chunk was allocated at address 2324
+    The 100-byte chunk was allocated at address 2224
+    The 80-byte chunk was allocated at address 3696
+
+        Answer:
+            It can't be first fit otherwise the the 100-byte chunk would allocate to
+                924.
+            It can't be best fit otherwise the 100-byte chunk would allocate to
+                3676.
+            It can't be worst fit due to the 200 byte allocating to address 2324
+                which isn't the biggest hole available.
+
+            It must be using none of the above.
+
+    Question #3
+    1024   64   1024    512   1024    128   1024    64    1024
+    0 |  1024 | 1088 | 2112 | 2624 | 3648 | 3776 | 4800 | 4864 |
+    --------------
+    The 40-byte chunk was allocated at address 3736
+    The 400-byte chunk was allocated at address 2224
+    The 80-byte chunk was allocated at address 2144
+    The 60-byte chunk was allocated at address 4804
+
+        Answer:
+            40-byte chunk goes to the 128 chunk
+                Can't be best fit
+            60-byte chunk goes to the second 64 bit chunk
+                Can't be first fit
+            400 and 80 byte chunk go to the 512 chunk
+                Can't be worst fit
+
+            It must be using none of the above
+
+    Question #4
+    Answer:
+        0 | 1024 | 1088 | 2112 | 2624 | 3648 | 3776 | 4800 | 4864 |
+        --------------
+        The 400-byte chunk was allocated at address 624
+        The 100-byte chunk was allocated at address 2012
+        The 10-byte chunk was allocated at address 3638
+        The 10-byte chunk was allocated at address 4790
