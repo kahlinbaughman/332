@@ -1,0 +1,46 @@
+F.q1.20
+    s = size of files
+    n = number of files
+    sp = speed to host
+    t = time to complete task
+    sp2 = speed to scratch storage
+
+       read         compute     write
+    [s*n/sp] +    [t]   + [s*n/sp2]
+
+    Top level tasks:
+        [(2000 * 20)/125] + [3600] + [(2000*20)/1250] = 3952
+    Bottom level tasks:
+        [(2000 * 20)/1250] + [300] + [(2000)/125] = 348
+
+        3952 + 348 = 4300
+
+    4300 seconds expected execution time
+    4316.84 seconds actual execution time
+
+F.q1.21
+
+    15100/4300 = 3.5 times faster
+
+F.q1.22
+
+    (Speed up factor)S(n) = T(1)/T(n) = 72717/4316 = 16.85
+    Parallel Efficiency = S(n)/# cores = 16.85/32 = 0.5265 * 100
+
+    Parallel Efficiency = 52.65%
+
+F.q1.23
+
+    Parallel Efficiency would be the same because 4*8 = 32 = 8 * 4. The number
+    of cores is the same and our ram is big enough that it doesn't produce a problem.
+
+F.q1.24
+
+    We are already at 32 cores in total which allows all 20 tasks to be run
+    together in parallel. Adding more cores won't lower the execution time. The
+    extra cores will just end up being idle.
+
+F.q1.25
+
+    The minimum number of 3 core nodes is 7 for the fastest time. We would have
+    21 cores which would allow all tasks to run together in parallel.
